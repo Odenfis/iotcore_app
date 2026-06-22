@@ -21,7 +21,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   void initState() {
     super.initState();
     _fetchData();
-    // Actualizar automáticamente cada 10 segundos
+    // Sistema actualiza cada 10 seg.
     _timer = Timer.periodic(const Duration(seconds: 10), (timer) {
       _fetchData();
     });
@@ -37,7 +37,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     try {
       final data = await _iotService.fetchReadings();
       setState(() {
-        // Ordenar por timestamp descendente para asegurar que el primero sea el más reciente
+        // Ordenamiento por timestamp :D
         _readings = data..sort((a, b) => b.timestamp.compareTo(a.timestamp));
         _isLoading = false;
       });
