@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/sensor_reading.dart';
 
 class IoTService {
-  // TODO: Replace with your actual API Gateway Endpoint URL
+  // TODO: Reemplazar por endpoint en default
   static const String _baseUrl = 'https://7a5h9psyn1.execute-api.us-east-1.amazonaws.com';
 
   Future<List<SensorReading>> fetchReadings({String? deviceId}) async {
