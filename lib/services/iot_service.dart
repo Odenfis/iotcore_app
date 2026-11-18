@@ -5,15 +5,9 @@ import 'package:http/http.dart' as http;
 
 import '../models/sensor_reading.dart';
 
-<<<<<<< HEAD
-class IoTService {
-  // TODO: Reemplazar por endpoint en default
-  static const String _baseUrl = 'https://7a5h9psyn1.execute-api.us-east-1.amazonaws.com';
-=======
 /// Error de negocio de la capa de red, con un mensaje listo para la interfaz.
 class ApiException implements Exception {
   const ApiException(this.message);
->>>>>>> dde5c7b (update oit core app version 2)
 
   final String message;
 

@@ -43,6 +43,9 @@ class _RelativeTimeTextState extends State<RelativeTimeText> {
     return Text(
       '${widget.prefix}${formatRelativeTime(widget.time)}',
       style: widget.style,
+      maxLines: 1,
+      softWrap: false,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

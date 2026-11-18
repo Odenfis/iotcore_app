@@ -22,8 +22,9 @@ class ReadingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
-    final temperatureColor =
-        AppTheme.temperatureColor(reading.temperatureState);
+    final temperatureColor = AppTheme.temperatureColor(
+      reading.temperatureState,
+    );
 
     return Card(
       clipBehavior: Clip.antiAlias,
@@ -60,10 +61,12 @@ class ReadingCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  RelativeTimeText(
-                    time: reading.dateTime,
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      color: scheme.primary,
+                  Flexible(
+                    child: RelativeTimeText(
+                      time: reading.dateTime,
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        color: scheme.primary,
+                      ),
                     ),
                   ),
                 ],

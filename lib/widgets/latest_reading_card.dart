@@ -28,10 +28,7 @@ class LatestReadingCard extends StatelessWidget {
 
     final backgroundColors = isDark
         ? [scheme.surfaceContainerHigh, scheme.surfaceContainerHighest]
-        : [
-            scheme.primary,
-            Color.lerp(scheme.primary, Colors.black, 0.28)!,
-          ];
+        : [scheme.primary, Color.lerp(scheme.primary, Colors.black, 0.28)!];
     final foreground = isDark ? scheme.onSurface : Colors.white;
     final muted = isDark
         ? scheme.onSurfaceVariant
@@ -175,9 +172,11 @@ class LatestReadingCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              RelativeTimeText(
-                time: reading.dateTime,
-                style: theme.textTheme.labelSmall?.copyWith(color: muted),
+              Flexible(
+                child: RelativeTimeText(
+                  time: reading.dateTime,
+                  style: theme.textTheme.labelSmall?.copyWith(color: muted),
+                ),
               ),
             ],
           ),

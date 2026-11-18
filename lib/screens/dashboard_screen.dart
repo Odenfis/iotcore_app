@@ -41,18 +41,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
   void initState() {
     super.initState();
     _fetchData();
-<<<<<<< HEAD
-    // Sistema actualiza cada 10 seg.
-    _timer = Timer.periodic(const Duration(seconds: 10), (timer) {
-      _fetchData();
-    });
-=======
 
     final interval = widget.pollInterval;
     if (interval != null) {
       _pollTimer = Timer.periodic(interval, (_) => _fetchData(silent: true));
     }
->>>>>>> dde5c7b (update oit core app version 2)
   }
 
   @override
@@ -61,29 +54,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
     super.dispose();
   }
 
-<<<<<<< HEAD
-  Future<void> _fetchData() async {
-    try {
-      final data = await _iotService.fetchReadings();
-      setState(() {
-        // Ordenamiento por timestamp :D
-        _readings = data..sort((a, b) => b.timestamp.compareTo(a.timestamp));
-        _isLoading = false;
-      });
-    } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error updating data: $e')),
-      );
-    }
-  }
-=======
   Future<void> _fetchData({bool silent = false}) async {
     if (_requestInFlight) return;
     _requestInFlight = true;
->>>>>>> dde5c7b (update oit core app version 2)
 
     if (!silent && mounted) {
       setState(() {

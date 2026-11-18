@@ -23,7 +23,8 @@ String formatRelativeTime(DateTime time, {DateTime? now}) {
   if (difference.inDays < 7) {
     return 'hace ${difference.inDays} días';
   }
-  return 'hace ${(difference.inDays / 7).floor()} semanas';
+  final weeks = difference.inDays ~/ 7;
+  return weeks == 1 ? 'hace 1 semana' : 'hace $weeks semanas';
 }
 
 /// Hora del día en formato `HH:mm:ss`.
